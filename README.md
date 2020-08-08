@@ -1,4 +1,4 @@
-# TinyHub
+# TinyHub (SwiftUI)
 
 <img width="500" alt="image" src="https://github.com/mszmagic/TinyHub/blob/master/Example/example_images/social-image.png?raw=true">
 
