@@ -21,8 +21,5 @@ let package = Package(
         .target(
             name: "TinyHubView",
             dependencies: []),
-        .testTarget(
-            name: "TinyHubViewTests",
-            dependencies: ["TinyHubView"]),
     ]
 )
