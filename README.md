@@ -18,7 +18,7 @@ import TinyHubView
 
 ### タイトルのみ
 
-[title-only.swift](/Example/title-only.swift)
+➡️ [title-only.swift](/Example/title-only.swift)
 
 ```swift
 TinyHubView(style: .dark, titleText: "Message sent!", isVisible: $isDisplaying, onTap: {
@@ -30,7 +30,7 @@ TinyHubView(style: .dark, titleText: "Message sent!", isVisible: $isDisplaying, 
 
 ### 画像付きのタイトル
 
-[title-image.swift](/Example/title-image.swift)
+➡️ [title-image.swift](/Example/title-image.swift)
 
 ```swift
 TinyHubView(style: .dark, titleText: "Message sent!", systemIconName: "paperplane.fill", isVisible: $isDisplaying, onTap: {
