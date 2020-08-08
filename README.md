@@ -40,16 +40,6 @@ TinyHubView(style: .dark, titleText: "メッセージを送信しました", sys
 
 <img width="500" alt="image" src="https://github.com/mszmagic/TinyHub/blob/master/Example/example_images/image-title-only.gif?raw=true">
 
-### タップして閉じる
-
-ユーザーがアラートをタップしたときにアラートが自動的に閉じるように、 `tapToDismiss` を有効にすることができます。
-
-```swift
-TinyHubView(style: .dark, titleText: "メッセージを送信しました", isVisible: $isDisplaying, tapToDismiss: true, onTap: {
-    print("Tapped")
-})
-```
-
 ### テキストの色と背景色をカスタマイズ
 
 ```swift
