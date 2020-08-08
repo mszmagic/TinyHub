@@ -69,7 +69,7 @@ public struct TinyHubView: View {
     ```
 
     */
-    public init(style: TinyHubStyle, titleText: String, systemIconName: String = "", isVisible: Binding<Bool>, tapToDismiss: Bool = false, onTap: @escaping () -> Void) {
+    public init(style: TinyHubStyle, titleText: String, systemIconName: String = "", isVisible: Binding<Bool>, tapToDismiss: Bool = true, onTap: @escaping () -> Void) {
         switch style {
             case .light:
                 textColor = .black
@@ -98,7 +98,7 @@ public struct TinyHubView: View {
     ```
 
     */
-    public init(customStyle: CustomStyle, isVisible: Binding<Bool>, titleText: String, systemIconName: String = "", tapToDismiss: Bool = false, onTap: @escaping () -> Void) {
+    public init(customStyle: CustomStyle, isVisible: Binding<Bool>, titleText: String, systemIconName: String = "", tapToDismiss: Bool = true, onTap: @escaping () -> Void) {
         self.textColor = customStyle.textColor
         self.backgroundColor = customStyle.backgroundColor
         self._isHubVisible = isVisible
@@ -135,10 +135,6 @@ public struct TinyHubView: View {
         
         Spacer()
         
-    }
-    
-    public func toggle() {
-        self.isHubVisible.toggle()
     }
     
 }
