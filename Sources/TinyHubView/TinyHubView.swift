@@ -8,7 +8,7 @@
 import SwiftUI
 
 @available(OSX 11, *)
-@available(iOS 13, *)
+@available(iOS 14, *)
 public struct CustomStyle {
     var textColor: Color
     var backgroundColor: Color
@@ -20,7 +20,7 @@ public enum TinyHubStyle {
 }
 
 @available(OSX 11, *)
-@available(iOS 13, *)
+@available(iOS 14, *)
 public struct TinyHubView: View {
     
     /*
