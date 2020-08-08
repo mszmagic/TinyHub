@@ -16,7 +16,7 @@ struct ExampleView: View {
     
     var body: some View {
         
-        TinyHubView(style: .dark, titleText: "メッセージを送信しました", systemIconName: "paperplane.fill", isVisible: $isDisplaying, tapToDismiss: true, onTap: {
+        TinyHubView(style: .success, titleText: "メッセージを送信しました", systemIconName: "paperplane.fill", isVisible: $isDisplaying, tapToDismiss: true, onTap: {
             print("Tapped")
         })
         

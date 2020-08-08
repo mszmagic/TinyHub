@@ -17,6 +17,9 @@ public struct CustomStyle {
 public enum TinyHubStyle {
     case light
     case dark
+    case success
+    case info
+    case warning
 }
 
 @available(OSX 11, *)
@@ -77,6 +80,15 @@ public struct TinyHubView: View {
             case .dark:
                 textColor = .white
                 backgroundColor = .black
+            case .info:
+                textColor = .white
+                backgroundColor = .blue
+            case .success:
+                textColor = .white
+                backgroundColor = .green
+            case .warning:
+                textColor = .white
+                backgroundColor = .yellow
         }
         self._isHubVisible = isVisible
         self.titleText = titleText
