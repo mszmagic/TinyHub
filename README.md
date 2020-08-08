@@ -4,9 +4,9 @@
 
 `TinyHubView` は画面の最上部に表示される小さくてエレガントなアラートビューです。このソフトウェアは `SwiftUI` で書かれています。
 
-## 使い方
+**現在、このフレームワークは `SwiftUI` アプリケーションでのみ機能します。**
 
-現在、このフレームワークは `SwiftUI` アプリケーションでのみ機能します。
+## 使い方
 
 ```swift
 import TinyHubView
@@ -18,25 +18,25 @@ import TinyHubView
 
 ### タイトルのみ
 
+[title-only.swift](/Example/title-only.swift)
+
 ```swift
 TinyHubView(style: .dark, titleText: "Message sent!", isVisible: $isDisplaying, onTap: {
     print("User Tapped")
 })
 ```
 
-[title-only.swift](/Example/title-only.swift)
-
 <img width="500" alt="image" src="https://github.com/mszmagic/TinyHub/blob/master/Example/example_images/title-only.gif?raw=true">
 
 ### 画像付きのタイトル
+
+[title-image.swift](/Example/title-image.swift)
 
 ```swift
 TinyHubView(style: .dark, titleText: "Message sent!", systemIconName: "paperplane.fill", isVisible: $isDisplaying, onTap: {
     print("User Tapped")
 })
 ```
-
-[title-image.swift](/Example/title-image.swift)
 
 <img width="500" alt="image" src="https://github.com/mszmagic/TinyHub/blob/master/Example/example_images/image-title-only.gif?raw=true">
 
