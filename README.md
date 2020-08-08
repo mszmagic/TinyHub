@@ -1,6 +1,6 @@
 # TinyHub
 
-<img width="500" alt="image" src="https://github.com/mszmagic/TinyHub/blob/main/Example/example_images/social-image.png?raw=true">
+<img width="500" alt="image" src="https://github.com/mszmagic/TinyHub/blob/master/Example/example_images/social-image.png?raw=true">
 
 `TinyHubView` は画面の最上部に表示される小さくてエレガントなアラートビューです。このソフトウェアは `SwiftUI` で書かれています。
 
@@ -14,7 +14,7 @@ TinyHubView(style: .dark, titleText: "Message sent!", isVisible: $isDisplaying, 
 })
 ```
 
-<img width="500" alt="image" src="https://github.com/mszmagic/TinyHub/blob/main/Example/example_images/title-only.gif?raw=true">
+<img width="500" alt="image" src="https://github.com/mszmagic/TinyHub/blob/master/Example/example_images/title-only.gif?raw=true">
 
 ### 画像付きのタイトル
 
@@ -24,7 +24,7 @@ TinyHubView(style: .dark, titleText: "Message sent!", systemIconName: "paperplan
 })
 ```
 
-<img width="500" alt="image" src="https://github.com/mszmagic/TinyHub/blob/main/Example/example_images/image-title-only.gif?raw=true">
+<img width="500" alt="image" src="https://github.com/mszmagic/TinyHub/blob/master/Example/example_images/image-title-only.gif?raw=true">
 
 ### タップして閉じる
 
