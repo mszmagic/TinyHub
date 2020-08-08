@@ -33,8 +33,8 @@ TinyHubView(style: .dark, titleText: "Message sent!", isVisible: $isDisplaying, 
 ➡️ [title-image.swift](/Example/title-image.swift)
 
 ```swift
-TinyHubView(style: .dark, titleText: "Message sent!", systemIconName: "paperplane.fill", isVisible: $isDisplaying, onTap: {
-    print("User Tapped")
+TinyHubView(style: .dark, titleText: "メッセージを送信しました", systemIconName: "paperplane.fill", isVisible: $isDisplaying, onTap: {
+    print("Tapped")
 })
 ```
 
@@ -45,7 +45,7 @@ TinyHubView(style: .dark, titleText: "Message sent!", systemIconName: "paperplan
 ユーザーがアラートをタップしたときにアラートが自動的に閉じるように、 `tapToDismiss` を有効にすることができます。
 
 ```swift
-TinyHubView(style: .dark, titleText: "Message sent!", isVisible: $isDisplaying, tapToDismiss: true, onTap: {
+TinyHubView(style: .dark, titleText: "メッセージを送信しました", isVisible: $isDisplaying, tapToDismiss: true, onTap: {
     print("Tapped")
 })
 ```
