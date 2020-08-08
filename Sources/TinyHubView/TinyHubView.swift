@@ -38,7 +38,7 @@ public struct TinyHubView: View {
     /*
      ユーザーがビューをタップした場合には、これを消します。
      */
-    var tapToDismiss = false
+    var tapToDismiss = true
     var tapAction: () -> Void
     
     /*
@@ -135,6 +135,10 @@ public struct TinyHubView: View {
         
         Spacer()
         
+    }
+    
+    public func toggle() {
+        self.isHubVisible.toggle()
     }
     
 }

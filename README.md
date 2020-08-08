@@ -8,6 +8,14 @@
 
 現在、このフレームワークは `SwiftUI` アプリケーションでのみ機能します。
 
+```swift
+import TinyHubView
+```
+
+```swift
+@State var isDisplaying = false
+```
+
 ### タイトルのみ
 
 ```swift
@@ -15,6 +23,8 @@ TinyHubView(style: .dark, titleText: "Message sent!", isVisible: $isDisplaying, 
     print("User Tapped")
 })
 ```
+
+[title-only.swift](/Example/title-only.swift)
 
 <img width="500" alt="image" src="https://github.com/mszmagic/TinyHub/blob/master/Example/example_images/title-only.gif?raw=true">
 
@@ -26,19 +36,17 @@ TinyHubView(style: .dark, titleText: "Message sent!", systemIconName: "paperplan
 })
 ```
 
+[title-image.swift](/Example/title-image.swift)
+
 <img width="500" alt="image" src="https://github.com/mszmagic/TinyHub/blob/master/Example/example_images/image-title-only.gif?raw=true">
 
 ### タップして閉じる
-
-```swift
-import TinyHubView
-```
 
 ユーザーがアラートをタップしたときにアラートが自動的に閉じるように、 `tapToDismiss` を有効にすることができます。
 
 ```swift
 TinyHubView(style: .dark, titleText: "Message sent!", isVisible: $isDisplaying, tapToDismiss: true, onTap: {
-    print("User Tapped")
+    print("Tapped")
 })
 ```
 
