@@ -62,6 +62,9 @@ TinyHubView(customStyle: CustomStyle(textColor: .white, backgroundColor: .blue),
 6. "branch"オプションを選択し、"master"に設定されていることを確認
 7. "Done"をクリック。
 
+@available(OSX 11, *)
+@available(iOS 14, *)
+
 ## ⭐️
 
 このリポジトリへの貢献を温かく歓迎します。Githubのイシューを自由に作成して、質問したり、提案したりすることができます。また、Githubのプルリクエストを自由に作成することもできます。
