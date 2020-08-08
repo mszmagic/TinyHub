@@ -30,6 +30,10 @@ TinyHubView(style: .dark, titleText: "Message sent!", systemIconName: "paperplan
 
 ### タップして閉じる
 
+```swift
+import TinyHubView
+```
+
 ユーザーがアラートをタップしたときにアラートが自動的に閉じるように、 `tapToDismiss` を有効にすることができます。
 
 ```swift
