@@ -14,14 +14,23 @@ struct ExampleView: View {
      */
     @State var isDisplaying = false
     
+    @State var progressValue: Float = 0.0
+    
     var body: some View {
         
-        TinyHubView(style: .success, titleText: "メッセージを送信しました", systemIconName: "paperplane.fill", isVisible: $isDisplaying, tapToDismiss: true, onTap: {
+        TinyHubView(style: .dark, titleText: "アセットをダウンロードしています…", systemIconName: "square.and.arrow.down.fill", isVisible: $isDisplaying, progressValue: $progressValue, tapToDismiss: true) {
             print("Tapped")
-        })
+        }
         
-        Button("アラートを表示/非表示") {
+        Slider(value: $progressValue)
+        
+        Button("Show") {
             self.isDisplaying.toggle()
+            Timer.scheduledTimer(withTimeInterval: 2.0, repeats: false) { (_) in
+                Timer.scheduledTimer(withTimeInterval: 0.001, repeats: true, block: { (_) in
+                    self.progressValue += 0.0001
+                })
+            }
         }
         
     }

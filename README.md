@@ -1,6 +1,6 @@
 # TinyHub (SwiftUI)
 
-<img width="500" alt="image" src="https://github.com/mszmagic/TinyHub/blob/master/Example/example_images/social-image.png?raw=true">
+<img width="500" alt="image" src="https://github.com/mszmagic/TinyHub/blob/master/social-image.png?raw=true">
 
 `TinyHubView` は画面の最上部に表示される小さくてエレガントなアラートビューです。このソフトウェアは `SwiftUI` で書かれています。
 
@@ -16,18 +16,6 @@ import TinyHubView
 @State var isDisplaying = false
 ```
 
-### タイトルのみ
-
-➡️ [title-only.swift](/Example/title-only.swift)
-
-```swift
-TinyHubView(style: .dark, titleText: "Message sent!", isVisible: $isDisplaying, onTap: {
-    print("User Tapped")
-})
-```
-
-<img width="500" alt="image" src="https://github.com/mszmagic/TinyHub/blob/master/Example/example_images/title-only.gif?raw=true">
-
 ### 画像付きのタイトル
 
 ➡️ [title-image.swift](/Example/title-image.swift)
@@ -40,6 +28,38 @@ TinyHubView(style: .dark, titleText: "メッセージを送信しました", sys
 
 <img width="500" alt="image" src="https://github.com/mszmagic/TinyHub/blob/master/Example/example_images/image-title-only.gif?raw=true">
 
+### （オプション） 進捗バーの表示
+
+ `progressValue` 変数を指定して、進捗レポートを表示できます。
+
+進捗バーは、進捗値が0より大きい場合にのみ表示されます。
+
+➡️ [with-progress-report.swift](/Example/with-progress-report.swift)
+
+```swift
+@State var progressValue: Float = 0.0
+```
+
+```swift
+TinyHubView(style: .dark, titleText: "アセットをダウンロードしています…", systemIconName: "square.and.arrow.down.fill", isVisible: $isDisplaying, progressValue: $progressValue, tapToDismiss: true) {
+    print("Tapped")
+}
+```
+
+<img width="500" alt="image" src="https://github.com/mszmagic/TinyHub/blob/master/Example/example_images/progress-bar.gif?raw=true">
+
+### タイトルのみ
+
+➡️ [title-only.swift](/Example/title-only.swift)
+
+```swift
+TinyHubView(style: .dark, titleText: "Message sent!", isVisible: $isDisplaying, onTap: {
+    print("User Tapped")
+})
+```
+
+<img width="500" alt="image" src="https://github.com/mszmagic/TinyHub/blob/master/Example/example_images/title-only.gif?raw=true">
+
 ### テキストの色と背景色をカスタマイズ
 
 ```swift
@@ -49,6 +69,18 @@ TinyHubView(customStyle: CustomStyle(textColor: .white, backgroundColor: .blue),
 ```
 
 `TinyHubView` を利用しているアプリケーション例を見るには、[こちらをクリックしてください](/Example)
+
+## 利用可能なスタイル：
+
+`.light`: ライトテーマ
+
+`.dark`: ダークテーマ
+
+`.success`: 操作の成功を表示
+
+`.info`: ユーザーに情報メッセージを表示
+
+`.warning`: ユーザーにエラーまたは警告メッセージを表示
 
 ## インストール方法：
 

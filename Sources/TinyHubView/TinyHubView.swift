@@ -49,6 +49,11 @@ public struct TinyHubView: View {
      */
     @Binding private var isHubVisible: Bool
     
+    /*
+     Progress Bar
+     */
+    @Binding public var progressBarValue: Float
+    
     /**
      ハブビューを初期化
      
@@ -72,7 +77,7 @@ public struct TinyHubView: View {
     ```
 
     */
-    public init(style: TinyHubStyle, titleText: String, systemIconName: String = "", isVisible: Binding<Bool>, tapToDismiss: Bool = true, onTap: @escaping () -> Void) {
+    public init(style: TinyHubStyle, titleText: String, systemIconName: String = "", isVisible: Binding<Bool>, progressValue: Binding<Float> = Binding.constant(0.0), tapToDismiss: Bool = true, onTap: @escaping () -> Void) {
         switch style {
             case .light:
                 textColor = .black
@@ -95,6 +100,7 @@ public struct TinyHubView: View {
         self.systemIconName = systemIconName
         self.tapAction = onTap
         self.tapToDismiss = tapToDismiss
+        self._progressBarValue = progressValue
     }
     
     /**
@@ -110,7 +116,7 @@ public struct TinyHubView: View {
     ```
 
     */
-    public init(customStyle: CustomStyle, isVisible: Binding<Bool>, titleText: String, systemIconName: String = "", tapToDismiss: Bool = true, onTap: @escaping () -> Void) {
+    public init(customStyle: CustomStyle, isVisible: Binding<Bool>, progressValue: Binding<Float> = Binding.constant(0.0), titleText: String, systemIconName: String = "", tapToDismiss: Bool = true, onTap: @escaping () -> Void) {
         self.textColor = customStyle.textColor
         self.backgroundColor = customStyle.backgroundColor
         self._isHubVisible = isVisible
@@ -118,32 +124,42 @@ public struct TinyHubView: View {
         self.systemIconName = systemIconName
         self.tapAction = onTap
         self.tapToDismiss = tapToDismiss
+        self._progressBarValue = progressValue
     }
+    
     
     /*
      ビューの実行
      */
     public var body: some View {
         
-        Label(self.titleText, systemImage: self.systemIconName)
-            .padding(.horizontal, 25)
-            .padding(.vertical, 15)
-            .foregroundColor(textColor)
-            .background(
-                RoundedRectangle(cornerRadius: 25)
-                    .fill(backgroundColor)
-                    .shadow(radius: 5)
-            )
-            .offset(y: isHubVisible ? 0 : -150)
-            .animation(.easeInOut, value: self.isHubVisible)
-            .onTapGesture {
-                // タップイベントについてアプリケーションに伝えます
-                self.tapAction()
-                // タップが消えるように設定している場合、タブを消します
-                if self.tapToDismiss {
-                    self.isHubVisible = false
-                }
+        VStack {
+            Label(self.titleText, systemImage: self.systemIconName)
+                
+            if self.progressBarValue != 0.0 {
+                ProgressView("", value: self.progressBarValue, total: 1.0)
+                    .frame(width: 200, height: 5, alignment: .center)
+                    .padding(.top, 10)
             }
+        }
+        .padding(.horizontal, 25)
+        .padding(.vertical, 15)
+        .foregroundColor(textColor)
+        .background(
+            RoundedRectangle(cornerRadius: 25)
+                .fill(backgroundColor)
+                .shadow(radius: 5)
+        )
+        .offset(y: isHubVisible ? 0 : -150)
+        .animation(.easeInOut, value: self.isHubVisible)
+        .onTapGesture {
+            // タップイベントについてアプリケーションに伝えます
+            self.tapAction()
+            // タップが消えるように設定している場合、タブを消します
+            if self.tapToDismiss {
+                self.isHubVisible = false
+            }
+        }
         
         Spacer()
         
