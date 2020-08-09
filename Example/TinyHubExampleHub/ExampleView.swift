@@ -24,8 +24,11 @@ struct ExampleView: View {
         
         Slider(value: $progressValue)
         
-        Button("Show") {
+        Button("アラートを表示/非表示") {
             self.isDisplaying.toggle()
+        }
+        
+        Button("進捗バーの表示") {
             Timer.scheduledTimer(withTimeInterval: 2.0, repeats: false) { (_) in
                 Timer.scheduledTimer(withTimeInterval: 0.001, repeats: true, block: { (_) in
                     self.progressValue += 0.0001

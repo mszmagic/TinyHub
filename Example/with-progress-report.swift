@@ -18,7 +18,7 @@ struct ExampleView: View {
     
     var body: some View {
         
-        TinyHubView(style: .dark, titleText: "Test", systemIconName: "paperplane.fill", isVisible: $isDisplaying, progressValue: $progressValue, tapToDismiss: true) {
+        TinyHubView(style: .dark, titleText: "アセットをダウンロードしています…", systemIconName: "square.and.arrow.down.fill", isVisible: $isDisplaying, progressValue: $progressValue, tapToDismiss: true) {
             print("Tapped")
         }
         
@@ -26,6 +26,14 @@ struct ExampleView: View {
         
         Button("アラートを表示/非表示") {
             self.isDisplaying.toggle()
+        }
+        
+        Button("進捗バーの表示") {
+            Timer.scheduledTimer(withTimeInterval: 2.0, repeats: false) { (_) in
+                Timer.scheduledTimer(withTimeInterval: 0.001, repeats: true, block: { (_) in
+                    self.progressValue += 0.0001
+                })
+            }
         }
         
     }
