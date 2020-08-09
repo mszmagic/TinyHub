@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import TinyHubView
 
 struct ExampleView: View {
     
@@ -22,18 +23,16 @@ struct ExampleView: View {
             print("Tapped")
         }
         
-        Slider(value: $progressValue)
-        
         Button("アラートを表示/非表示") {
             self.isDisplaying.toggle()
         }
         
+        Slider(value: $progressValue)
+        
         Button("進捗バーの表示") {
-            Timer.scheduledTimer(withTimeInterval: 2.0, repeats: false) { (_) in
-                Timer.scheduledTimer(withTimeInterval: 0.001, repeats: true, block: { (_) in
-                    self.progressValue += 0.0001
-                })
-            }
+            Timer.scheduledTimer(withTimeInterval: 0.001, repeats: true, block: { (_) in
+                self.progressValue += 0.0001
+            })
         }
         
     }
