@@ -6,6 +6,13 @@
 
 **現在、このフレームワークは `SwiftUI` アプリケーションでのみ機能します。**
 
+[**使い方**](https://github.com/mszmagic/TinyHub#使い方)
+ - [画像付きのタイトル](https://github.com/mszmagic/TinyHub#画像付きのタイトル)
+ - [進捗バーの表示](https://github.com/mszmagic/TinyHub#オプション-進捗バーの表示)
+ - [タイトルのみ](https://github.com/mszmagic/TinyHub#タイトルのみ)
+[**利用可能なスタイル**](https://github.com/mszmagic/TinyHub#利用可能なスタイル)
+[**インストール方法**](https://github.com/mszmagic/TinyHub#インストール方法)
+
 ## 使い方
 
 ```swift
