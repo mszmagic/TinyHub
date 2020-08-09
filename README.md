@@ -90,8 +90,8 @@ TinyHubView(customStyle: CustomStyle(textColor: .white, backgroundColor: .blue),
 2. 上部のシステムバーの"File"をクリック
 3. "Swift Packages"をクリック、次いで"Add package dependency…"をクリック
 4. 以下のURLをペースト：`https://github.com/mszmagic/TinyHub.git`
-5. "Next"をクリック
-6. "branch"オプションを選択し、"master"に設定されていることを確認
+5. Version: Up to Next Major `1.0.1 <`
+6. "Next"をクリック
 7. "Done"をクリック。
 
 @available(OSX 11, *)
