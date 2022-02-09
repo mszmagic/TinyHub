@@ -171,10 +171,10 @@ public struct TinyHubView: View {
 @available(iOS 15, *)
 public extension View {
     @ViewBuilder
-    public func addTinyHubView(customStyle: CustomStyle, isVisible: Binding<Bool>, progressValue: Binding<Float> = Binding.constant(0.0), titleText: String, systemIconName: String = "", tapToDismiss: Bool = true, onTap: @escaping () -> Void) -> some View {
+    public func addTinyHubView(style: TinyHubStyle, titleText: String, systemIconName: String = "", isVisible: Binding<Bool>, progressValue: Binding<Float> = Binding.constant(0.0), tapToDismiss: Bool = true, onTap: @escaping () -> Void) -> some View {
         return self.overlay(content: {
             VStack {
-                TinyHubView.init(customStyle: customStyle, isVisible: isVisible, progressValue: progressValue, titleText: titleText, systemIconName: systemIconName, tapToDismiss: tapToDismiss, onTap: onTap)
+                TinyHubView.init(style: style, titleText: titleText, systemIconName: systemIconName, isVisible: isVisible, progressValue: progressValue, tapToDismiss: tapToDismiss, onTap: onTap)
                 Spacer()
             }
         })
