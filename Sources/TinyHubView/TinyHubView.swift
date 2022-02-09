@@ -167,6 +167,8 @@ public struct TinyHubView: View {
     
 }
 
+@available(OSX 11, *)
+@available(iOS 13, *)
 public extension View {
     @ViewBuilder
     public func addTinyHubView(customStyle: CustomStyle, isVisible: Binding<Bool>, progressValue: Binding<Float> = Binding.constant(0.0), titleText: String, systemIconName: String = "", tapToDismiss: Bool = true, onTap: @escaping () -> Void) -> some View {
