@@ -14,6 +14,11 @@ public struct CustomStyle {
     var backgroundColor: Color
 }
 
+public enum RelativePosition {
+    case topOfScreen
+    case bottomOfScreen
+}
+
 public enum TinyHubStyle {
     case light
     case dark
@@ -171,11 +176,16 @@ public struct TinyHubView: View {
 @available(iOS 15, *)
 public extension View {
     @ViewBuilder
-    public func addTinyHubView(style: TinyHubStyle, titleText: String, systemIconName: String = "", isVisible: Binding<Bool>, progressValue: Binding<Float> = Binding.constant(0.0), tapToDismiss: Bool = true, onTap: @escaping () -> Void) -> some View {
+    public func addTinyHubView(style: TinyHubStyle, titleText: String, systemIconName: String = "", isVisible: Binding<Bool>, progressValue: Binding<Float> = Binding.constant(0.0), tapToDismiss: Bool = true, relativePosition: RelativePosition = .topOfScreen, onTap: @escaping () -> Void) -> some View {
         return self.overlay(content: {
             VStack {
+                if relativePosition == .bottomOfScreen {
+                    Spacer()
+                }
                 TinyHubView.init(style: style, titleText: titleText, systemIconName: systemIconName, isVisible: isVisible, progressValue: progressValue, tapToDismiss: tapToDismiss, onTap: onTap)
-                Spacer()
+                if relativePosition == .topOfScreen {
+                    Spacer()
+                }
             }
         })
     }
