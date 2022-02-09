@@ -167,3 +167,14 @@ public struct TinyHubView: View {
     
 }
 
+public extension View {
+    @ViewBuilder
+    public func addTinyHubView(customStyle: CustomStyle, isVisible: Binding<Bool>, progressValue: Binding<Float> = Binding.constant(0.0), titleText: String, systemIconName: String = "", tapToDismiss: Bool = true, onTap: @escaping () -> Void) -> some View {
+        return self.overlay(content: {
+            VStack {
+                TinyHubView.init(customStyle: customStyle, isVisible: isVisible, progressValue: progressValue, titleText: titleText, systemIconName: systemIconName, tapToDismiss: tapToDismiss, onTap: onTap)
+                Spacer()
+            }
+        })
+    }
+}
