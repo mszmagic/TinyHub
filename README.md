@@ -6,31 +6,47 @@
 
 **現在、このフレームワークは `SwiftUI` アプリケーションでのみ機能します。**
 
-[**使い方**](https://github.com/mszmagic/TinyHub#使い方)
- - [画像付きのタイトル](https://github.com/mszmagic/TinyHub#画像付きのタイトル)
- - [進捗バーの表示](https://github.com/mszmagic/TinyHub#オプション-進捗バーの表示)
- - [タイトルのみ](https://github.com/mszmagic/TinyHub#タイトルのみ)
- 
-[**利用可能なスタイル**](https://github.com/mszmagic/TinyHub#利用可能なスタイル)
-
-[**インストール方法**](https://github.com/mszmagic/TinyHub#インストール方法)
-
 ## 使い方
 
-```swift
-import TinyHubView
-```
+### iOS 15では、`.addTinyHubView`ビューモディファイアを使用して、直接これをビューに追加することができます。
+
+In iOS 15, you can directly use the `.addTinyHubView` view modifier to directly add this to your view.
 
 ```swift
-@State var isDisplaying = false
+import SwiftUI
+
+// 1. Import the framework
+import TinyHubView
+
+struct DemoView: View {
+    
+    // 2. Add a variable
+    @State private var showTinyHub: Bool = false
+    
+    var body: some View {
+        Form {
+            Button("Show") {
+                self.showTinyHub = true
+            }
+        }
+        // 3. Use the view modifier
+        .addTinyHubView(style: .info, titleText: "Hello World!", isVisible: $showTinyHub) {
+            print("Hello")
+        }
+    }
+}
 ```
+
+iOS < 15 では、まず Tiny Hub コンポーネントをインポートし、次に `TinyHubView` を使用して初期化することで、手動で表示することができます。
+
+In iOS < 15, you can manually display the Tiny Hub component by importing it first, then initializing it by using `TinyHubView`
 
 ### 画像付きのタイトル
 
 ➡️ [title-image.swift](/Example/title-image.swift)
 
 ```swift
-TinyHubView(style: .dark, titleText: "メッセージを送信しました", systemIconName: "paperplane.fill", isVisible: $isDisplaying, onTap: {
+.addTinyHubView(style: .dark, titleText: "メッセージを送信しました", systemIconName: "paperplane.fill", isVisible: $isDisplaying, onTap: {
     print("Tapped")
 })
 ```
@@ -50,7 +66,7 @@ TinyHubView(style: .dark, titleText: "メッセージを送信しました", sys
 ```
 
 ```swift
-TinyHubView(style: .dark, titleText: "アセットをダウンロードしています…", systemIconName: "square.and.arrow.down.fill", isVisible: $isDisplaying, progressValue: $progressValue, tapToDismiss: true) {
+.addTinyHubView(style: .dark, titleText: "アセットをダウンロードしています…", systemIconName: "square.and.arrow.down.fill", isVisible: $isDisplaying, progressValue: $progressValue, tapToDismiss: true) {
     print("Tapped")
 }
 ```
@@ -62,7 +78,7 @@ TinyHubView(style: .dark, titleText: "アセットをダウンロードしてい
 ➡️ [title-only.swift](/Example/title-only.swift)
 
 ```swift
-TinyHubView(style: .dark, titleText: "Message sent!", isVisible: $isDisplaying, onTap: {
+.addTinyHubView(style: .dark, titleText: "Message sent!", isVisible: $isDisplaying, onTap: {
     print("User Tapped")
 })
 ```
@@ -72,7 +88,7 @@ TinyHubView(style: .dark, titleText: "Message sent!", isVisible: $isDisplaying, 
 ### テキストの色と背景色をカスタマイズ
 
 ```swift
-TinyHubView(customStyle: CustomStyle(textColor: .white, backgroundColor: .blue), isVisible: $isDisplaying, titleText: "メッセージを送信しました", systemIconName: "paperplane.fill", tapToDismiss: true) {
+.addTinyHubView(customStyle: CustomStyle(textColor: .white, backgroundColor: .blue), isVisible: $isDisplaying, titleText: "メッセージを送信しました", systemIconName: "paperplane.fill", tapToDismiss: true) {
     print("Tapped")
 }
 ```
