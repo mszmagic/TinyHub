@@ -48,7 +48,7 @@ public struct TinyHubView: View {
      内部変数
      */
     @Binding private var isHubVisible: Bool
-    var adjustedOffset: Int
+    private var adjustedOffset: CGFloat
     
     /*
      Progress Bar
@@ -78,7 +78,7 @@ public struct TinyHubView: View {
     ```
 
     */
-    public init(style: TinyHubStyle, titleText: String, systemIconName: String = "", isVisible: Binding<Bool>, progressValue: Binding<Float> = Binding.constant(0.0), tapToDismiss: Bool = true, adjustedOffset: Int = 0, onTap: @escaping () -> Void) {
+    public init(style: TinyHubStyle, titleText: String, systemIconName: String = "", isVisible: Binding<Bool>, progressValue: Binding<Float> = Binding.constant(0.0), tapToDismiss: Bool = true, adjustedOffset: CGFloat = 0, onTap: @escaping () -> Void) {
         switch style {
             case .light:
                 textColor = .black
@@ -118,7 +118,7 @@ public struct TinyHubView: View {
     ```
 
     */
-    public init(customStyle: CustomStyle, isVisible: Binding<Bool>, progressValue: Binding<Float> = Binding.constant(0.0), titleText: String, systemIconName: String = "", tapToDismiss: Bool = true, adjustedOffset: Int = 0, onTap: @escaping () -> Void) {
+    public init(customStyle: CustomStyle, isVisible: Binding<Bool>, progressValue: Binding<Float> = Binding.constant(0.0), titleText: String, systemIconName: String = "", tapToDismiss: Bool = true, adjustedOffset: CGFloat = 0, onTap: @escaping () -> Void) {
         self.textColor = customStyle.textColor
         self.backgroundColor = customStyle.backgroundColor
         self._isHubVisible = isVisible
@@ -174,7 +174,7 @@ public struct TinyHubView: View {
 @available(iOS 15, *)
 public extension View {
     @ViewBuilder
-    public func addTinyHubView(style: TinyHubStyle, titleText: String, systemIconName: String = "", isVisible: Binding<Bool>, progressValue: Binding<Float> = Binding.constant(0.0), tapToDismiss: Bool = true, adjustedOffset: Int = 0, onTap: @escaping () -> Void) -> some View {
+    public func addTinyHubView(style: TinyHubStyle, titleText: String, systemIconName: String = "", isVisible: Binding<Bool>, progressValue: Binding<Float> = Binding.constant(0.0), tapToDismiss: Bool = true, adjustedOffset: CGFloat = 0, onTap: @escaping () -> Void) -> some View {
         return self.overlay(content: {
             VStack {
                 TinyHubView.init(style: style, titleText: titleText, systemIconName: systemIconName, isVisible: isVisible, progressValue: progressValue, tapToDismiss: tapToDismiss, adjustedOffset: adjustedOffset, onTap: onTap)
